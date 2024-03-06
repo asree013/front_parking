@@ -1,0 +1,32 @@
+.body_create_park{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 20%;
+    padding: 10px;
+}
+.from_create_park{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+}
+.FormControl{
+    margin: 10px 0;
+    width: 20rem;
+    padding: 20px;
+}
+
+@media only screen and (max-width: 450px) {
+    .body_create_park{
+        margin: 10px ;
+        padding: 10px;
+    }
+    .FormControl{
+        padding: 10px;
+    }
+}

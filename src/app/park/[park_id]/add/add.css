@@ -1,0 +1,19 @@
+.add_home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 10px;
+}
+.inputForms{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+}
+@media only screen and (max-width: 450px) {
+    .inputForms{
+        flex-direction: column; 
+        width: 100%;
+    }
+}

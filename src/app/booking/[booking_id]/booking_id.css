@@ -1,0 +1,48 @@
+.from_create_booking{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:  column;
+    padding: 20px;
+}
+.menubar_create_booking{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: 8rem;
+}
+.action_create_booking{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.isValid{
+    color: red;
+    border: 2px solid red;
+}
+.result_park{
+    width: 100%;
+}
+
+
+@media only screen and (max-width: 450px) {
+    .menubar_create_booking{
+        height: 14rem;
+    }
+    .action_create_booking{
+        flex-direction: column;
+        width: 100%;
+    }
+    .inputP{
+        display: flex;
+    }
+    .btn_create{
+        margin-top: 10px;
+        width: 100%;
+    }
+}
