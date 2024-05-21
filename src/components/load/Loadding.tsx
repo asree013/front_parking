@@ -1,19 +1,13 @@
-import { Backdrop, CircularProgress, LinearProgress } from '@mui/material'
+import { Box, LinearProgress } from '@mui/material'
 import React from 'react'
 
-interface retutnType {
-  data: boolean
-}
-
-export default function Loadding({data}: retutnType) {
+export default function Loadding() {
 
   return (
-    <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={data}
-        style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}
-        >
-        <LinearProgress />
-    </Backdrop>
+    <div style={{ position: 'fixed', top: '0', left: '0', width: '100%', height: '100%', background: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Box sx={{ width: '70%' }}>
+        <LinearProgress color='info' />
+      </Box>
+    </div>
   )
 }

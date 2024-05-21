@@ -36,13 +36,17 @@ export default function page() {
         const jwt = JSON.parse(authen).jwt
         
         const resJwt = await validJwt(jwt.toString())
-        let book = {} as Bookings
+        console.log(resJwt.id);
+
+        const book = {} as Bookings
         book.detail = booking.detail
+        book.booking_by = booking.booking_by
         book.start_date = start_date? start_date: ''
         book.end_date = end_date? end_date: ''
         book.parking_id = String(park_id.park_id)
-        book.booking_by = booking.booking_by
-        book.created_by = resJwt.id
+        book.created_by = resJwt.id.toString()
+
+        
 
         const resBook = await createBooking(book)
         
@@ -59,6 +63,7 @@ export default function page() {
             slip.image = slipImage
             slip.detail = 'ค่ามัดจำ'
             slip.payment_id = resPayment.id
+            slip.count = resPayment.count
             const resSlip = await createSlipPayment(slip)
           }
           router.push('/booking')

@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import './login.css'
 import { useRouter } from 'next/navigation'
-import {login} from '@/services/authen.service'
+import { login } from '@/services/authen.service'
 import { toastAlert } from '@/services/alert.service'
 import Loadding from '@/components/load/Loadding'
 import Link from 'next/link'
@@ -10,7 +10,7 @@ import Link from 'next/link'
 
 export default function page() {
   const router = useRouter()
-  const [logins, setLogins] = useState<{username: string, password: string}>({username: "", password: ''})
+  const [logins, setLogins] = useState<{ username: string, password: string }>({ username: "", password: '' })
   const [remember, setRemember] = useState<boolean>(false)
   const [load, setLoad] = useState<boolean>(false)
 
@@ -21,9 +21,9 @@ export default function page() {
       password: logins.password
     }
     try {
-      const result = await login(authen)      
-      if(result){
-        if(remember === false) {
+      const result = await login(authen)
+      if (result) {
+        if (remember === false) {
           const rem = {
             jwt: JSON.stringify(result.access_token),
             createDate: '',
@@ -34,7 +34,7 @@ export default function page() {
           router.push('/park')
           setLoad(false)
         }
-        else{
+        else {
           const rem = {
             jwt: result.access_token,
             createDate: new Date(),
@@ -43,10 +43,9 @@ export default function page() {
           localStorage.setItem('authen', JSON.stringify(rem))
           toastAlert('logined success!!!', 'success')
           router.push('/park')
-          setLoad(false)
         }
       }
-      
+
     } catch (error: any) {
       console.log(error.message);
       setLoad(false)
@@ -54,17 +53,17 @@ export default function page() {
     }
   }
   return (
-    <div>
+    <>
       <div className="log">
         <h2>BaanRimRou</h2>
         <form>
           <div className="input-cont">
-            <input type="text" onChange={(e) => setLogins({...logins, username: e.target.value})} />
+            <input type="text" onChange={(e) => setLogins({ ...logins, username: e.target.value })} />
             <label>Username</label>
             <div className="border1"></div>
           </div>
           <div className="input-cont">
-            <input type="password" onChange={(e) => setLogins({...logins, password: e.target.value})}/>
+            <input type="password" onChange={(e) => setLogins({ ...logins, password: e.target.value })} />
             <label>Password</label>
             <div className="border2"></div>
           </div>
@@ -78,7 +77,7 @@ export default function page() {
           <button className='btnLogin' type="button" value="Sign In" onClick={onLogin}>Sing In</button>
         </form>
       </div>
-      <Loadding data={load} />
-    </div>
+      {load === true? <Loadding />: null}
+    </>
   )
 }
