@@ -37,10 +37,10 @@ export default function ParkLayout({data, query}: IPark) {
                   <Typography variant="h5" component="div">
                     ไม่มีห้อง
                   </Typography>
-                  <Typography color="text.secondary">
+                  <Typography color="text.secondary" component='div'>
                     <p style={{fontSize: '3rem'}}>+</p>
                   </Typography>
-                  <Typography color="text.secondary">
+                  <Typography color="text.secondary" component='div'>
                     คลิกเพื้อสร้าง
                   </Typography>
                 </CardContent>

@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 
 export function toastAlert(txt: string, icons: any, time?: number) {
     if(!time){
-        time === 5000
+        time = 5000
     }
     const Toast = Swal.mixin({
         toast: true,

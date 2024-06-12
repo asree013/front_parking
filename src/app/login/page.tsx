@@ -17,7 +17,7 @@ export default function page() {
   async function onLogin() {
     setLoad(true)
     const authen = {
-      username: logins.username,
+      username: logins.username.toLocaleLowerCase(),
       password: logins.password
     }
     try {
